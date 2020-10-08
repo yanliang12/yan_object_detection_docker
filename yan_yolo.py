@@ -118,7 +118,7 @@ def train_yan_yolo_model(
     anchors_path = 'model_data/yolo_anchors.txt',
     trained_weights_final_file = None,
     trained_weights_stage_1 = 'trained_weights_stage_1.h5',
-    batch_size = 32,
+    batch_size = 1,
     epochs_stage_1 = 10,
     epochs_fine_tunning = 10
     ):
@@ -178,5 +178,5 @@ def train_yan_yolo_model(
         model.save_weights(trained_weights_final_file)
     return model
 
-    # Further training if needed.
+# Further training if needed.
 ##############yan_yolo.py##############
