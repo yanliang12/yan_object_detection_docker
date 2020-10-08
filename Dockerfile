@@ -21,5 +21,8 @@ RUN python convert.py yolov3.cfg yolov3.weights model_data/yolo.h5
 RUN pip3 install Pillow==7.2.0
 RUN pip3 install matplotlib
 
+RUN wget https://raw.githubusercontent.com/yanliang12/yan_object_detection_docker/main/cat.jpg
+RUN wget https://raw.githubusercontent.com/yanliang12/yan_object_detection_docker/main/person_and_bike.jpg
+
 CMD bash
 #################################
