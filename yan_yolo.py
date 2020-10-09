@@ -178,4 +178,15 @@ def train_yan_yolo_model(
     return model
 
 # Further training if needed.
+
+class model_parameter:
+  def __init__(
+    self,
+    weight_file,
+    anchor_file,
+    class_file):
+    self.model_path = weight_file
+    self.anchors_path = anchor_file
+    self.classes_path = class_file
+
 ##############yan_yolo.py##############
