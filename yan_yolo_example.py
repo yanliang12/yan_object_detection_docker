@@ -1,6 +1,8 @@
 '''
 rm yan_yolo.py 
 wget https://raw.githubusercontent.com/yanliang12/yan_object_detection_docker/main/yan_yolo.py
+
+python yan_yolo_example.py
 '''
 
 from PIL import Image
@@ -19,7 +21,7 @@ model = train_yan_yolo_model(
 	anchors_path = 'model_data/tiny_yolo_anchors.txt',
 	trained_weights_final_file = 'uae_landmark.h5',
 	batch_size = 1,
-	epochs_fine_tunning = 50,
+	epochs_fine_tunning = 100,
 	pre_trained_weights_path = 'model_data/tiny_yolo_weights.h5'
 	)
 
