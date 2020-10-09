@@ -119,7 +119,7 @@ def train_yan_yolo_model(
     trained_weights_final_file = None,
     trained_weights_stage_1_file = 'trained_weights_stage_1.h5',
     batch_size = 1,
-    epochs_stage_1 = 10,
+    epochs_stage_1 = 0,
     epochs_fine_tunning = 10,
     pre_trained_weights_path = None
     ):
