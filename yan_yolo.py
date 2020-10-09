@@ -199,6 +199,11 @@ class model_parameter:
     self.score = score
 
 
+re_object = r'label\"\:\s+\"(?P<label>[^\"]+)\",\s+\"points\"\:\s+\[\s+'\
++r'\[\s*(?P<min_x>\d+)\.\d*\,\s*(?P<min_y>\d+)\.\d*\s*\]\,\s*'\
++r'\[\s*(?P<max_x>\d+)\.\d*\,\s*(?P<max_y>\d+)\.\d*\s*\]'
+
+
 def labelme_2_yolo_label(
     train_set_file,
     converted_train_file,
