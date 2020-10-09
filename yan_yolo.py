@@ -120,16 +120,23 @@ def train_yan_yolo_model(
     trained_weights_stage_1_file = 'trained_weights_stage_1.h5',
     batch_size = 1,
     epochs_stage_1 = 10,
-    epochs_fine_tunning = 10
+    epochs_fine_tunning = 10,
+    pre_trained_weights_path = None
     ):
     class_names = get_classes(classes_path)
     num_classes = len(class_names)
     anchors = get_anchors(anchors_path)
     input_shape = (416,416) # multiple of 32, hw
     is_tiny_version = len(anchors)==6 # default setting
+    if pre_trained_weights_path is None:
+        weights_path_tiny = 'model_data/tiny_yolo_weights.h5'
+        weights_path = 'model_data/yolo_weights.h5'
+    else:
+        weights_path_tiny = pre_trained_weights_path
+        weights_path = pre_trained_weights_path
     if is_tiny_version:
         model = create_tiny_model(input_shape, anchors, num_classes,
-            freeze_body=2, weights_path='model_data/tiny_yolo_weights.h5')
+            freeze_body=2, weights_path=weights_path)
     else:
         model = create_model(input_shape, anchors, num_classes,
             freeze_body=2, weights_path='model_data/yolo_weights.h5') # make sure you know what you freeze
