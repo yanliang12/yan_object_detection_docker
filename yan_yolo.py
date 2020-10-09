@@ -2,7 +2,7 @@
 """
 Retrain the YOLO model for your own dataset.
 """
-
+import re
 import numpy as np
 import keras.backend as K
 from keras.layers import Input, Lambda
@@ -197,5 +197,33 @@ class model_parameter:
     self.anchors_path = anchor_file
     self.classes_path = class_file
     self.score = score
+
+
+def labelme_2_yolo_label(
+    train_set_file,
+    converted_train_file,
+    class_file):
+    yan_train = open(train_set_file).read().split('\n')
+    yan_class_data = open(class_file).read().split('\n')
+    yan_class = {}
+    for i, c in zip(range(len(yan_class_data)), yan_class_data):
+        yan_class[c] = i
+    yan_train1 = open(converted_train_file, "w+")
+    for f in yan_train:
+        g = re.sub(r'\.[A-z]+$', '.json', f)
+        s = open(g).read()
+        parsed = [m.groupdict() for m in re.finditer(re_object, s)]
+        l = ['{},{},{},{},{}'.format(
+            m['min_x'],
+            m['min_y'],
+            m['max_x'],
+            m['max_y'],
+            yan_class[m['label']])
+            for m in parsed]
+        l = ' '.join(l)
+        annot  = f+' '+l+'\n'
+        print(annot)
+        yan_train1.write(annot)
+    yan_train1.close()
 
 ##############yan_yolo.py##############
