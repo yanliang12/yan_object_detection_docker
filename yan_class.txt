@@ -1,2 +1,2 @@
-cat
-person
+burj_khalifa
+burj_al_arab
