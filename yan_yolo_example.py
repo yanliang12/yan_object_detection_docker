@@ -21,7 +21,7 @@ model = train_yan_yolo_model(
 	anchors_path = 'model_data/tiny_yolo_anchors.txt',
 	trained_weights_final_file = 'uae_landmark.h5',
 	batch_size = 1,
-	epochs_fine_tunning = 100,
+	epochs_fine_tunning = 200,
 	pre_trained_weights_path = 'model_data/tiny_yolo_weights.h5'
 	)
 
