@@ -1,2 +1,16 @@
-cat.jpg 365,327,2610,1883,0
-person_and_bike.jpg 371,65,709,837,1
+/yan/burj_al_arab8.jpg
+/yan/burj_al_arab7.jpg
+/yan/burj_al_arab6.jpg
+/yan/burj_al_arab5.jpeg
+/yan/burj_al_arab4.jpeg
+/yan/burj_al_arab3.jpeg
+/yan/burj_al_arab2.jpeg
+/yan/burj_al_arab1.jpg
+/yan/burj_khalifa8.jpeg
+/yan/burj_khalifa7.jpg
+/yan/burj_khalifa6.jpg
+/yan/burj_khalifa5.jpg
+/yan/burj_khalifa4.jpg
+/yan/burj_khalifa3.jpg
+/yan/burj_khalifa2.jpg
+/yan/burj_khalifa1.jpeg
