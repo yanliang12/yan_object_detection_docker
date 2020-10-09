@@ -117,7 +117,7 @@ def train_yan_yolo_model(
     classes_path = 'model_data/voc_classes.txt',
     anchors_path = 'model_data/yolo_anchors.txt',
     trained_weights_final_file = None,
-    trained_weights_stage_1 = 'trained_weights_stage_1.h5',
+    trained_weights_stage_1_file = 'trained_weights_stage_1.h5',
     batch_size = 1,
     epochs_stage_1 = 10,
     epochs_fine_tunning = 10
@@ -151,8 +151,9 @@ def train_yan_yolo_model(
         steps_per_epoch=max(1, num_train//batch_size),
         epochs=epochs_stage_1,
         initial_epoch=0)
-    if trained_weights_stage_1 is not None:
-        model.save_weights(trained_weights_stage_1)
+    if trained_weights_stage_1_file is not None:
+        print('saving stage 1 model to {}'.format(trained_weights_stage_1_file))
+        model.save_weights(trained_weights_stage_1_file)
     ########
     if trained_weights_final_file is not None:
         # Unfreeze and continue training, to fine-tune.
@@ -172,6 +173,7 @@ def train_yan_yolo_model(
             epochs=epochs_fine_tunning,
             initial_epoch=epochs_stage_1
             )
+        print('saving final model to {}'.format(trained_weights_final_file))
         model.save_weights(trained_weights_final_file)
     return model
 
