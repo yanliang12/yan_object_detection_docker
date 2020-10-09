@@ -191,9 +191,11 @@ class model_parameter:
     self,
     weight_file,
     anchor_file,
-    class_file):
+    class_file,
+    score = 0.3):
     self.model_path = weight_file
     self.anchors_path = anchor_file
     self.classes_path = class_file
+    self.score = score
 
 ##############yan_yolo.py##############
