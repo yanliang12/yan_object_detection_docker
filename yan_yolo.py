@@ -208,8 +208,8 @@ def labelme_2_yolo_label(
     train_set_file,
     converted_train_file,
     class_file):
-    yan_train = open(train_set_file).read().split('\n')
-    yan_class_data = open(class_file).read().split('\n')
+    yan_train = open(train_set_file).read().strip().split('\n')
+    yan_class_data = open(class_file).read().strip().split('\n')
     yan_class = {}
     for i, c in zip(range(len(yan_class_data)), yan_class_data):
         yan_class[c] = i
@@ -227,7 +227,6 @@ def labelme_2_yolo_label(
             for m in parsed]
         l = ' '.join(l)
         annot  = f+' '+l+'\n'
-        print(annot)
         yan_train1.write(annot)
     yan_train1.close()
 
