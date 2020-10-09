@@ -122,7 +122,6 @@ def train_yan_yolo_model(
     epochs_stage_1 = 10,
     epochs_fine_tunning = 10
     ):
-
     class_names = get_classes(classes_path)
     num_classes = len(class_names)
     anchors = get_anchors(anchors_path)
@@ -134,10 +133,8 @@ def train_yan_yolo_model(
     else:
         model = create_model(input_shape, anchors, num_classes,
             freeze_body=2, weights_path='model_data/yolo_weights.h5') # make sure you know what you freeze
-
     with open(annotation_path) as f:
         lines = f.readlines()
-
     np.random.seed(10101)
     np.random.shuffle(lines)
     np.random.seed(None)
@@ -148,7 +145,7 @@ def train_yan_yolo_model(
         optimizer=Adam(lr=1e-3), 
         loss={'yolo_loss': lambda y_true, y_pred: y_pred})
     print('Train on {} samples, with batch size {}.'.format(num_train, batch_size))
-
+    #######
     model.fit_generator(
         data_generator_wrapper(lines[:num_train], batch_size, input_shape, anchors, num_classes),
         steps_per_epoch=max(1, num_train//batch_size),
