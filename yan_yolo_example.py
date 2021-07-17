@@ -15,6 +15,10 @@ labelme_2_yolo_label(
     class_file = 'yan_class.txt'
     )
 
+'''
+cp model_data/tiny_yolo_weights.h5 uae_landmark.h5
+'''
+
 model = train_yan_yolo_model(
 	annotation_path = 'yan_train_annotated.txt',
 	classes_path = 'yan_class.txt',
@@ -30,7 +34,7 @@ yolo_yan = YOLO(**vars(
 	'uae_landmark.h5',
 	'model_data/tiny_yolo_anchors.txt',
 	'yan_class.txt',
-	score = 0.3)))
+	score = 0.2)))
 
 yan_train = open('yan_train.txt').read().strip().split('\n')
 for f in yan_train:
@@ -40,3 +44,6 @@ for f in yan_train:
 	f1 = re.sub(r'\.', r'_detected.', f)
 	r_image.save(f1)
 	print()
+
+
+
